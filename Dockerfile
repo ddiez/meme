@@ -30,7 +30,7 @@ RUN cd /tmp/meme_4.11.3 && make install
 ENV PATH /opt/bin:$PATH
 
 # Set user.
-RUN useradd -ms /bin/bash memeuser
-RUN echo 'memeuser:memeuser' | chpasswd
-USER memeuser
-WORKDIR /home/memeuser
+RUN useradd -ms /bin/bash biodev
+RUN echo 'biodev:biodev' | chpasswd
+USER biodev
+WORKDIR /home/biodev
