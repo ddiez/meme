@@ -1,0 +1,12 @@
+services:
+  - docker
+
+install:
+  - docker build -t meme .
+
+before_script:
+  - git clone https://github.com/ddiez/dataset.git
+
+script:
+  - docker run meme meme -h
+  - docker run -v $(pwd):/home/biodev meme meme dataset/fasta/uniprot.fasta
