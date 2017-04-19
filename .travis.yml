@@ -9,4 +9,4 @@ before_script:
 
 script:
   - docker run meme meme -h
-  - docker run -v $(pwd):/home/biodev meme meme dataset/fasta/uniprot.fasta
+#  - docker run -v $(pwd):/home/biodev meme meme dataset/fasta/uniprot.fasta
