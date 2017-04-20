@@ -1,6 +1,9 @@
 FROM debian:testing
 LABEL maintainer Diego Diez <diego10ruiz@gmail.com>
 
+ENV VERSION=4.11.3
+ENV PATCH=$VERSION\_1
+
 # Install software.
 RUN apt-get update && \
     apt-get install -y build-essential zlib1g-dev && \
@@ -8,12 +11,17 @@ RUN apt-get update && \
     apt-get install -y libxml2 libxslt1.1 && \
     apt-get install -y libxml2-dev libxslt1-dev ghostscript && \
     apt-get install -y libxml-sax-expat-perl curl && \
-    curl http://meme-suite.org/meme-software/4.11.3/meme_4.11.3_1.tar.gz > /tmp/meme_4.11.3_1.tar.gz && \
-    cd /tmp && tar zxvf meme_4.11.3_1.tar.gz && \
-    cd /tmp/meme_4.11.3 && ./configure --prefix /opt && \
-    cd /tmp/meme_4.11.3 && make && \
-    cd /tmp/meme_4.11.3 && make install && \
-    cd /tmp && rm -rf meme_4.11.3 && \
+
+    # build.
+    curl http://meme-suite.org/meme-software/$VERSION/meme_$PATCH.tar.gz > /tmp/meme_$PATCH.tar.gz && \
+    cd /tmp && tar xfzv meme_$PATCH.tar.gz && \
+    cd /tmp/meme_$VERSION && \
+    ./configure --prefix /opt && \
+    make && \
+    make install && \
+
+    # clean up.
+    rm /tmp/meme_$PATCH.tar.gz && \
     apt-get purge -y build-essential zlib1g-dev && \
     apt-get purge -y libopenmpi-dev curl && \
     apt-get purge -y libxml2-dev libxslt1-dev && \
