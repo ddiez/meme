@@ -1,8 +1,8 @@
 FROM debian:testing
 LABEL maintainer Diego Diez <diego10ruiz@gmail.com>
 
-ENV VERSION=4.11.3
-ENV PATCH=$VERSION\_1
+ENV VERSION=4.11.4
+ENV PATCH=$VERSION
 
 # Install software.
 RUN apt-get update && \
