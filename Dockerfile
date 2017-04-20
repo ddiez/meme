@@ -22,6 +22,7 @@ RUN apt-get update && \
 
     # clean up.
     rm /tmp/meme_$PATCH.tar.gz && \
+    rm -rf /tmp/meme_$VERSION && \
     apt-get purge -y build-essential zlib1g-dev && \
     apt-get purge -y libopenmpi-dev curl && \
     apt-get purge -y libxml2-dev libxslt1-dev && \
