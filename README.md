@@ -5,7 +5,7 @@ meme
 
 # About
 
-Dockerfile for MEME suite
+Dockerfile for the [MEME suite](http://meme-suite.org).
 
 # Usage
 
