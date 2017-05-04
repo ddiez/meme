@@ -49,3 +49,5 @@ RUN useradd -ms /bin/bash biodev
 RUN echo 'biodev:biodev' | chpasswd
 USER biodev
 WORKDIR /home/biodev
+
+CMD ["/bin/bash"]
