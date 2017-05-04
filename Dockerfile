@@ -8,6 +8,8 @@ ENV PATCH=$VERSION
 RUN apt-get update && \
     apt-get install -y \
       build-essential \
+      python \
+      python3 \
       zlib1g-dev \
       libopenmpi-dev openmpi-bin \
       ssh \
