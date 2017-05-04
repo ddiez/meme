@@ -6,11 +6,19 @@ ENV PATCH=$VERSION
 
 # Install software.
 RUN apt-get update && \
-    apt-get install -y build-essential zlib1g-dev && \
-    apt-get install -y libopenmpi-dev openmpi-bin ssh && \
-    apt-get install -y libxml2 libxslt1.1 && \
-    apt-get install -y libxml2-dev libxslt1-dev ghostscript && \
-    apt-get install -y libxml-sax-expat-perl curl && \
+    apt-get install -y \
+      build-essential \
+      zlib1g-dev \
+      libopenmpi-dev openmpi-bin \
+      ssh \
+      libxml2 \
+      libxslt1.1 \
+      libxml2-dev \
+      libxslt1-dev \
+      ghostscript \
+      libxml-sax-expat-perl \
+      curl \
+      && \
 
     # build.
     curl http://meme-suite.org/meme-software/$VERSION/meme_$PATCH.tar.gz > /tmp/meme_$PATCH.tar.gz && \
@@ -23,9 +31,14 @@ RUN apt-get update && \
     # clean up.
     rm /tmp/meme_$PATCH.tar.gz && \
     rm -rf /tmp/meme_$VERSION && \
-    apt-get purge -y build-essential zlib1g-dev && \
-    apt-get purge -y libopenmpi-dev curl && \
-    apt-get purge -y libxml2-dev libxslt1-dev && \
+    apt-get purge -y \
+      build-essential \
+      zlib1g-dev \
+      libopenmpi-dev \
+      curl \
+      libxml2-dev \
+      libxslt1-dev \
+      && \
     apt-get autoremove -y
 
 # Add /opt/bin to PATH.
