@@ -8,8 +8,8 @@ before_script:
   - git clone https://github.com/ddiez/dataset.git
 
 script:
-  - docker run meme
-  - docker run -v $(pwd):/home/biodev ddiez/meme meme dataset/fasta/uniprot.fasta
+  - docker run -v $(pwd):/home/biodev ddiez/meme meme dataset/fasta/uniprot.fasta || true
+  - docker run ddiez/meme
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
