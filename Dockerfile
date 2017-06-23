@@ -2,7 +2,8 @@ FROM debian:testing
 LABEL maintainer Diego Diez <diego10ruiz@gmail.com>
 
 ENV VERSION=4.11.4
-ENV PATCH=$VERSION
+# When needed add \_X wih X being the patch number.
+ENV PATCH=$VERSION\_1
 
 # Install software.
 RUN apt-get update && \
