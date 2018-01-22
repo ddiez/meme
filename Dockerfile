@@ -22,16 +22,12 @@ RUN apt-get update && \
       libxml-sax-expat-perl \
       curl \
       && \
-
-    # build.
     curl http://meme-suite.org/meme-software/$VERSION/meme_$PATCH.tar.gz > /tmp/meme_$PATCH.tar.gz && \
     cd /tmp && tar xfzv meme_$PATCH.tar.gz && \
     cd /tmp/meme_$VERSION && \
     ./configure --prefix /opt && \
     make && \
     make install && \
-
-    # clean up.
     rm /tmp/meme_$PATCH.tar.gz && \
     rm -rf /tmp/meme_$VERSION && \
     apt-get purge -y \
