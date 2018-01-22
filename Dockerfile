@@ -1,9 +1,8 @@
 FROM debian:testing
 LABEL maintainer Diego Diez <diego10ruiz@gmail.com>
 
-ENV VERSION=4.11.4
-# When needed add \_X wih X being the patch number.
-ENV PATCH=$VERSION\_1
+# Add \_X wih X being the patch number (if needed).
+ENV VERSION=4.12.0
 
 # Install software.
 RUN apt-get update && \
@@ -22,13 +21,13 @@ RUN apt-get update && \
       libxml-sax-expat-perl \
       curl \
       && \
-    curl http://meme-suite.org/meme-software/$VERSION/meme_$PATCH.tar.gz > /tmp/meme_$PATCH.tar.gz && \
-    cd /tmp && tar xfzv meme_$PATCH.tar.gz && \
+    curl http://meme-suite.org/meme-software/$VERSION/meme_$VERSION.tar.gz > /tmp/meme_$VERSION.tar.gz && \
+    cd /tmp && tar xfzv meme_$VERSION.tar.gz && \
     cd /tmp/meme_$VERSION && \
     ./configure --prefix /opt && \
     make && \
     make install && \
-    rm /tmp/meme_$PATCH.tar.gz && \
+    rm /tmp/meme_$VERSION.tar.gz && \
     rm -rf /tmp/meme_$VERSION && \
     apt-get purge -y \
       build-essential \
