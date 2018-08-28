@@ -2,7 +2,7 @@ FROM debian:testing
 LABEL maintainer Diego Diez <diego10ruiz@gmail.com>
 
 # Add \_X wih X being the patch number (if needed).
-ENV VERSION=4.12.0
+ENV VERSION=5.0.1
 
 # Install software.
 RUN apt-get update && \
@@ -23,7 +23,7 @@ RUN apt-get update && \
       && \
     curl http://meme-suite.org/meme-software/$VERSION/meme_$VERSION.tar.gz > /tmp/meme_$VERSION.tar.gz && \
     cd /tmp && tar xfzv meme_$VERSION.tar.gz && \
-    cd /tmp/meme_$VERSION && \
+    cd /tmp/meme-$VERSION && \
     ./configure --prefix /opt && \
     make && \
     make install && \
