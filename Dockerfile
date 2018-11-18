@@ -2,7 +2,7 @@ FROM debian:testing
 LABEL maintainer Diego Diez <diego10ruiz@gmail.com>
 
 # Add \_X wih X being the patch number (if needed).
-ENV VERSION=5.0.1
+ENV VERSION=5.0.2
 
 # Install software.
 RUN apt-get update && \
@@ -21,7 +21,7 @@ RUN apt-get update && \
       libxml-sax-expat-perl \
       curl \
       && \
-    curl http://meme-suite.org/meme-software/$VERSION/meme_$VERSION.tar.gz > /tmp/meme_$VERSION.tar.gz && \
+    curl http://meme-suite.org/meme-software/$VERSION/meme-$VERSION.tar.gz > /tmp/meme_$VERSION.tar.gz && \
     cd /tmp && tar xfzv meme_$VERSION.tar.gz && \
     cd /tmp/meme-$VERSION && \
     ./configure --prefix /opt && \
