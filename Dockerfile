@@ -2,7 +2,7 @@ FROM debian:testing
 LABEL maintainer Diego Diez <diego10ruiz@gmail.com>
 
 # Add \_X wih X being the patch number (if needed).
-ENV VERSION=5.0.2
+ENV VERSION=5.0.3
 
 # Install software.
 RUN apt-get update && \
